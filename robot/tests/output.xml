@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.11.4 on win32)" generated="2025-08-12T20:16:22.691874" rpa="false" schemaversion="5">
+<suite id="s1" name="Scenario001" source="E:\HawKishZ\งาน2025+\QA\Practice_test_project\project_web\robot\tests\scenario001.robot">
+<test id="s1-t1" name="TC-SR-001" line="7">
+<kw name="Open Browser To Login Page" owner="keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-12T20:16:22.995593" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001E58BDE6A50&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-12T20:16:22.995593" elapsed="0.000000"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-08-12T20:16:22.995593" level="INFO">${args} = ['--disable-blink-features=AutomationControlled', '--incognito']</msg>
+<var>${args}</var>
+<arg>--disable-blink-features=AutomationControlled</arg>
+<arg>--incognito</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-08-12T20:16:22.995593" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>${arg}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-08-12T20:16:22.996619" elapsed="0.000000"/>
+</kw>
+<var name="${arg}">--disable-blink-features=AutomationControlled</var>
+<status status="PASS" start="2025-08-12T20:16:22.995593" elapsed="0.001026"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>${arg}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-08-12T20:16:22.996619" elapsed="0.000000"/>
+</kw>
+<var name="${arg}">--incognito</var>
+<status status="PASS" start="2025-08-12T20:16:22.996619" elapsed="0.000000"/>
+</iter>
+<var>${arg}</var>
+<value>@{args}</value>
+<status status="PASS" start="2025-08-12T20:16:22.995593" elapsed="0.001026"/>
+</for>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-12T20:16:22.997588" level="INFO">&amp;{prefs} = { credentials_enable_service=False | profile.password_manager_enabled=False }</msg>
+<var>&amp;{prefs}</var>
+<arg>credentials_enable_service=False</arg>
+<arg>profile.password_manager_enabled=False</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-12T20:16:22.996619" elapsed="0.000969"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-08-12T20:16:22.997588" elapsed="0.000000"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-08-12T20:16:22.997588" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2025-08-12T20:16:22.997588" elapsed="3.084014"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-08-12T20:16:26.081602" elapsed="0.038609"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-08-12T20:16:26.121207" level="INFO">Opening url 'https://co-newsproject.com/'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-08-12T20:16:26.120211" elapsed="0.320050"/>
+</kw>
+<status status="PASS" start="2025-08-12T20:16:22.994596" elapsed="3.445665"/>
+</kw>
+<kw name="Login As Admin" owner="keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-12T20:16:26.442260" level="INFO">Typing text 'abcd' into text field 'id=login'.</msg>
+<arg>id=login</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T20:16:26.441259" elapsed="0.079788"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-12T20:16:26.521047" level="INFO">Typing text '1234' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T20:16:26.521047" elapsed="0.050207"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-12T20:16:26.572252" level="INFO">Clicking button 'xpath=//*[@id="loginForm"]/button'.</msg>
+<arg>xpath=//*[@id="loginForm"]/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T20:16:26.571254" elapsed="0.056848"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-08-12T20:16:26.628102" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<arg>accept</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-08-12T20:16:26.628102" elapsed="0.508639"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>dashboard</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2025-08-12T20:16:27.137739" elapsed="0.107713"/>
+</kw>
+<status status="PASS" start="2025-08-12T20:16:26.441259" elapsed="0.804193"/>
+</kw>
+<kw name="Navigate to News Dashboard" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-12T20:16:27.246449" level="INFO">Clicking element 'id=newsDropdown'.</msg>
+<arg>id=newsDropdown</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T20:16:27.246449" elapsed="0.060838"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-12T20:16:27.307287" level="INFO">Clicking element 'xpath=//*[@id="newsDropdownContent"]/a[1]'.</msg>
+<arg>xpath=//*[@id="newsDropdownContent"]/a[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T20:16:27.307287" elapsed="0.103721"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//tbody[@id="newsList"]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-12T20:16:27.411008" elapsed="0.015958"/>
+</kw>
+<status status="PASS" start="2025-08-12T20:16:27.246449" elapsed="0.180517"/>
+</kw>
+<kw name="Navigate to Add News Page" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-12T20:16:27.427962" level="INFO">Clicking element 'xpath=//*[@id="content"]/a[1]'.</msg>
+<arg>xpath=//*[@id="content"]/a[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T20:16:27.426966" elapsed="0.116307"/>
+</kw>
+<status status="PASS" start="2025-08-12T20:16:27.426966" elapsed="0.117305"/>
+</kw>
+<kw name="Add News" owner="keywords">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-08-12T20:16:27.545269" level="INFO">${NEWS_DATE} = 2025-08-12T20:16</msg>
+<var>${NEWS_DATE}</var>
+<arg>result_format=%Y-%m-%dT%H:%M</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-08-12T20:16:27.544271" elapsed="0.000998"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-12T20:16:27.545269" level="INFO">Typing text 'ทดสอบ Robot Framework' into text field 'id=newsName'.</msg>
+<arg>id=newsName</arg>
+<arg>${TITLE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T20:16:27.545269" elapsed="0.061355"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-12T20:16:27.606624" level="INFO">Typing text 'ทดสอบเนื้อหา' into text field 'id=newsDetails'.</msg>
+<arg>id=newsDetails</arg>
+<arg>${DETAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T20:16:27.606624" elapsed="0.045878"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-12T20:16:27.652502" level="INFO">Typing text '2025-08-12T20:16' into text field 'id=newsDate'.</msg>
+<arg>id=newsDate</arg>
+<arg>${NEWS_DATE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T20:16:27.652502" elapsed="0.055850"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-12T20:16:27.709351" level="INFO">Clicking element 'id=newsDetails'.</msg>
+<arg>id=newsDetails</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T20:16:27.708352" elapsed="0.037899"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-08-12T20:16:27.746251" level="INFO">Selecting options from selection list 'id=catId' by label กีฬา.</msg>
+<msg time="2025-08-12T20:16:27.871916" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-12T20:16:27.871916" level="FAIL">NoSuchElementException: Message: Could not locate element with visible text: กีฬา; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+</msg>
+<arg>id=catId</arg>
+<arg>${CATEGORY}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="FAIL" start="2025-08-12T20:16:27.746251" elapsed="0.180518">NoSuchElementException: Message: Could not locate element with visible text: กีฬา; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+</status>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<arg>id=majorId</arg>
+<arg>${MAJOR}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="NOT RUN" start="2025-08-12T20:16:27.926769" elapsed="0.000997"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="addNewsForm"]/button[2]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-12T20:16:27.927766" elapsed="0.000000"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<arg>accept</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="NOT RUN" start="2025-08-12T20:16:27.927766" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>expected=${URL}views/news/news.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="NOT RUN" start="2025-08-12T20:16:27.927766" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>text=${TITLE}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2025-08-12T20:16:27.927766" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-08-12T20:16:27.544271" elapsed="0.383495">NoSuchElementException: Message: Could not locate element with visible text: กีฬา; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+</status>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="NOT RUN" start="2025-08-12T20:16:27.927766" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-08-12T20:16:22.993601" elapsed="4.935162">NoSuchElementException: Message: Could not locate element with visible text: กีฬา; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+</status>
+</test>
+<doc>Scenario 01 - ตรวจสอบฟังก์ชันการจัดการข้อมูลข่าวในระบบ</doc>
+<status status="FAIL" start="2025-08-12T20:16:22.693870" elapsed="5.234893"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Scenario001">Scenario001</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,379 @@
+{
+	"info": {
+		"_postman_id": "22214bd8-e025-4f3a-86d9-76cc6e16b142",
+		"name": "portfolioProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43512533"
+	},
+	"item": [
+		{
+			"name": "TC001",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 100ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURLport}}api/news/",
+					"host": [
+						"{{baseURLport}}api"
+					],
+					"path": [
+						"news",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC002",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Must be contain ฝนถล่ม in name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.News_Id).to.eql(160);\r",
+							"    pm.expect(jsonData.News_Details).to.contain(\"ฝนถล่ม\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURLport}}api/news/160",
+					"host": [
+						"{{baseURLport}}api"
+					],
+					"path": [
+						"news",
+						"160"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC003",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"News not found\", function () {\r",
+							"    pm.expect(pm.response.text()).to.contain(\"ไม่พบข่าวนี้\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURLport}}api/news/999",
+					"host": [
+						"{{baseURLport}}api"
+					],
+					"path": [
+						"news",
+						"999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC004",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful with status 201 or 202\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 100ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"News_Name\": \"test post\",\r\n    \"News_Details\": \"test post detail\",\r\n    \"Date_Added\": \"2025-06-01 19:00:00\",\r\n    \"Cat_Id\": 22,\r\n    \"Major_Id\": 1\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURLport}}api/news",
+					"host": [
+						"{{baseURLport}}api"
+					],
+					"path": [
+						"news"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC005",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Should return status 400 for missing titile\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body is incorrect\", function () {\r",
+							"    pm.response.to.have.body(\"เพิ่มข้อมูลข่าวไม่สำเร็จ\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"News_Name\": \"\",\r\n    \"News_Details\": \"test post detail\",\r\n    \"Date_Added\": \"2025-06-01 19:00:00\",\r\n    \"Cat_Id\": 22,\r\n    \"Major_Id\": 1\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURLport}}api/news",
+					"host": [
+						"{{baseURLport}}api"
+					],
+					"path": [
+						"news"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC006",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Should return status 400 for incorrect cat_id\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"News_Name\": \"test\",\r\n    \"News_Details\": \"test post detail\",\r\n    \"Date_Added\": \"2025-06-01 19:00:00\",\r\n    \"Cat_Id\": 30,\r\n    \"Major_Id\": 1\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURLport}}api/news",
+					"host": [
+						"{{baseURLport}}api"
+					],
+					"path": [
+						"news"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC007",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Updated Successfully\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"แก้ไขข้อมูลข่าวสำเร็จ\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"News_Name\": \"test put\",\r\n    \"News_Details\": \"test update detail\",\r\n    \"Date_Added\": \"2025-06-01 19:00:00\",\r\n    \"Cat_Id\": 29,\r\n    \"Major_Id\": 1\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURLport}}api/news/231",
+					"host": [
+						"{{baseURLport}}api"
+					],
+					"path": [
+						"news",
+						"231"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC008",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Deleted Successfully\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"ลบข้อมูลข่าวสำเร็จ\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURLport}}api/news/235",
+					"host": [
+						"{{baseURLport}}api"
+					],
+					"path": [
+						"news",
+						"235"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC009",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Deleted Failed\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"ไม่พบข่าวสารตาม ID ที่ระบุ\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURLport}}api/news/999",
+					"host": [
+						"{{baseURLport}}api"
+					],
+					"path": [
+						"news",
+						"999"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

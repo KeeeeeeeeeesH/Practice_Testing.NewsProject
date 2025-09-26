@@ -1,0 +1,21 @@
+# Ignore project setting
+.vscode/
+
+# Ignore main project components
+JsonFirebase/
+images/
+NewsImage/
+routes/
+scripts/
+styles/
+uploads/
+views/
+app.js
+fcmNotifier.js
+node_modules/
+
+# Ignore other project components
+docker-compose.yml
+news_web_app.sql
+news.csv
+system.text
