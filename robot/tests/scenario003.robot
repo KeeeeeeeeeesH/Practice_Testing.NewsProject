@@ -10,7 +10,7 @@ TC-SR-007
     Navigate to Picture Dashboard
     Navigate to Add Picture Page
     Sleep    1s
-    Select From List By Value    xpath=//*[@id="newsId"]    214
+    Select From List By Value    xpath=//*[@id="newsId"]    449
     Sleep    1s
     Upload False Cover Image
     Sleep    1s
@@ -28,11 +28,11 @@ TC-SR-008
     Navigate to Picture Dashboard
     Navigate to Add Picture Page
     Sleep    1s
-    Select From List By Value    xpath=//*[@id="newsId"]    214
+    Select From List By Value    xpath=//*[@id="newsId"]    449
     Sleep    1s
-    Choose File    xpath=//*[@id="coverImage"]    E:/HawKishZ/งาน2025+/QA/Practice_web_test_project/project_web/NewsImage/Cover/cover_crime1.png
+    Choose File    xpath=//*[@id="coverImage"]    E:/HawKishZ/งาน2025+/QA/Practice_test_project/project_web/NewsImage/Cover/cover_crime1.png
     Sleep    1s
-    Choose File    xpath=//*[@id="contentImages"]    E:/HawKishZ/งาน2025+/QA/Practice_web_test_project/project_web/NewsImage/Cover/gif mock.gif
+    Choose File    xpath=//*[@id="contentImages"]    E:/HawKishZ/งาน2025+/QA/Practice_test_project/project_web/NewsImage/Cover/gif mock.gif
     Sleep    1s
     Click Button    xpath=//*[@id="uploadForm"]/button
     Sleep    5s
@@ -44,7 +44,7 @@ TC-SR-009
     Open Browser To Login Page
     Login As Admin
     Navigate to Picture Dashboard
-    Search and Delete Picture    214
+    Search and Delete Picture    449
     Sleep    3s
     Close All Browsers
 

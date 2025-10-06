@@ -20,8 +20,8 @@ ${EDIT_DETAIL}    ทดสอบ แก้ไข
 ${SEARCH_TYPE_1}    ค้นหาตามชื่อข่าว
 ${SEARCH_TYPE_2}    ค้นหาตามวันที่
 
-${IMG_PATH1}    E:/HawKishZ/งาน2025+/QA/Practice_web_test_project/project_web/NewsImage/sport2.1.png
-${IMG_PATH2}    E:/HawKishZ/งาน2025+/QA/Practice_web_test_project/project_web/NewsImage/sport2.2.png
+${IMG_PATH1}    E:/HawKishZ/งาน2025+/QA/Practice_test_project/project_web/NewsImage/sport2.1.png
+${IMG_PATH2}    E:/HawKishZ/งาน2025+/QA/Practice_test_project/project_web/NewsImage/sport2.2.png
 
 *** Keywords ***
 
@@ -117,7 +117,7 @@ Navigate to Add Picture Page
     Click Element    xpath=//*[@id="content"]/a
 
 Upload False Cover Image
-    Choose File    xpath=//*[@id="coverImage"]    E:/HawKishZ/งาน2025+/QA/Practice_web_test_project/project_web/NewsImage/crime1.png
+    Choose File    xpath=//*[@id="coverImage"]    E:/HawKishZ/งาน2025+/QA/Practice_test_project/project_web/NewsImage/crime1.png
 
 Upload Multiple Content Pictures
     ${file1}=    Normalize Path    ${IMG_PATH1}
